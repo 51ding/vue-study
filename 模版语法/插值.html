@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>模版语法</title>
+	</head>
+
+	<body>
+		<div id="app">
+			<p>Using mustaches: {{ rawHtml }}</p>
+			<p>Using v-html directive: <span v-html="rawHtml"></span></p>
+			<button @click="set(true)">yes</button>
+			<button @click="set(false)">no</button>
+			<label>{{ok? 'yes':'no'}}</label>
+			<ul>
+				<li v-for="(course,index) in courses">
+					<a href="#" v-bind:id="'list'+index">{{ course }}</a>
+				</li>
+			</ul>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data: {
+					msg: "你没的",
+					rawHtml:`<h2>附表一</h2>`,
+					ok:false,
+					courses:["css","html","js"]
+				},
+				methods:{
+					set:function(result){
+						this.ok=result;
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>
