@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>扩展实例构造器</title>
+	</head>
+	<body>
+		<h1>扩展实例构造器</h1>
+		<hr />
+		<newlink></newlink>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script>
+				var newLink=Vue.extend({
+					template:"<p><a :href='href'>{{content}} </a></p>",
+					data:function(){
+						return {
+							content:"百度",
+							href:"http://www.baidu.com"
+						}
+					}
+				});
+				
+				//安装
+				new newLink().$mount("newlink");
+				
+		</script>
+	</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>自定义指令</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	</head>
+	<body>
+		<div id="app">
+			<div v-colorchage="color">{{ number }}</div>
+			<button   @click="add">增加</button>
+			<button @click="destoryCommand">接触命令绑定</button>
+			<div>
+				<h1>自定义指令的生命周期</h1>
+				<h3>bind</h3>
+				<h3>inserted</h3>
+				<h3>update</h3>
+				<h3>componentUpdated</h3>
+				<h3>unbind</h3>
+				<h3>代码示例</h3>
+				<p>
+					<code>
+						Vue.directive("指令名",{
+							bind:function(){
+								
+							},
+							inserted:function(){
+								
+							},
+							update:function(){
+								
+							},
+							componentUpdated:function(){
+								
+							},
+							unbind:function(){
+								
+							}
+						})
+					</code>
+				</p>
+			</div>
+		</div>
+		<script>
+			Vue.directive("colorchage", {
+					bind: function(el,binding) {
+						el.style="color:"+binding.value;
+						console.log("bind");
+					},
+					inserted: function() {
+						console.log("inserted");
+					},
+					update: function() {
+						console.log("update");
+					},
+					componentUpdated: function() {
+						console.log("componentUpdated");
+					},
+					unbind: function() {
+						console.log("unbind");
+					}
+				})
+
+var app = new Vue({
+	el: "#app",
+	data: {
+		number: 0,
+		color: "red"
+	},
+	methods: {
+		add: function() {
+			this.number++;
+			this.color = "yellow";
+		},
+		destoryCommand:function(){
+			this.$destroy()
+		}
+	}
+})</script>
+	</body>
+</html>

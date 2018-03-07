@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>生命周期(钩子函数)</title>
+		
+	</head>
+	<body>
+		<div id="app">
+				<h4>beforeCreate:创建之前</h4>
+				<h4>created:创建之后</h4>
+			  <h4>beforeMount:挂载之前</h4>
+			  <h4>mounted:挂载之后</h4>
+			  <h4>beforeUpdate:修改之前</h4>
+			  <h4>updated:修改之后</h4>
+			  <h4>beforeDestroy:销毁之前</h4>
+			  <h4>destroyed:销毁之后</h4>
+			  <div id="app">
+			 		<p>{{number}}</p>
+			 		<button @click="add">增加</button>
+			 		<button @click="app.$destroy()">销毁Vue对象</button>
+			  </div>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script>
+			var app=new Vue({
+				el:"#app",
+				data:{
+					number:0
+				},
+				methods:{
+					add:function(){
+						this.number++;
+					},
+					destroy1:function(){
+						this.$destroy()
+					}
+				},
+				beforeCreate:function(){
+					console.log("创建之前！");
+				},
+				created:function(){
+					console.log("已创建");
+				},
+				beforeMount:function(){
+					console.log("挂载之前！");
+				},
+				mounted:function(){
+					console.log("已挂载！");
+				},
+				beforeUpdate:function(){
+					console.log("修改之前！");
+				},
+				updated:function(){
+					console.log("修改之后");
+				},
+				beforeDestroy:function(){
+					console.log("销毁之前");
+				},
+				destroyed:function(){
+					console.log("销毁之后！");
+				}
+			})
+		</script>
+	</body>
+</html>
