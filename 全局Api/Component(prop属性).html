@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Component(props属性使用)</title>
+	</head>
+	<body>
+		<p>props选项就是设置和获取标签上的属性值的</p>
+		<div id="app">
+			<houhanbin lover="lover" ishow="false"></houhanbin>
+			<dingyan my-Lover="houhanbin"></dingyan>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script>
+			var app=new Vue({
+				el:"#app",
+				components:{
+					houhanbin:{
+						template:"<h2 v-if='ishow'>houhanbin love {{lover}} {{ishow}}</h2>",
+						props:["lover","ishow"]
+					},
+					dingyan:{
+						template:"<h2>dingyan love {{myLover}}</h2>",
+						props:["myLover"]
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

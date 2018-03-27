@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>propData属性，针对</title>
+	</head>
+	<body>
+		<p>使用全局扩展传递数据,从外部给扩展传一个值</p>
+		<p>Vuex保持状态和数据</p>
+		<div id="app">
+			
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script>
+			var header=Vue.extend({
+				template:"<h1>{{message}}----{{a}}</h1>",
+				data:function(){
+					return {
+						message:"Hello World"
+					}
+				},
+				props:["a"]
+			})
+			new header({
+				propsData:{
+					a:1
+				}
+			}).$mount("head");
+		</script>
+	</body>
+</html>

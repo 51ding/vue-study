@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Watch选项</title>
+	</head>
+
+	<body>
+		<div id="app">
+			<p>今日温度:{{tempature}}</p>
+			<p>穿衣建议:{{suggestion}}</p>
+			<button @click="add">增加</button>
+			<button @click="reduce">减少</button>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				data: {
+					tempature: 24,
+					suggestion: "衬衣"
+				},
+				methods: {
+					add: function() {
+						this.tempature += 5;
+					},
+					reduce: function() {
+						this.tempature -= 5;
+					}
+				},
+//				watch: {
+//					tempature: function(value, oldValue) {
+//						if(value > 40) {
+//							this.suggestion = "短裤，短袖！";
+//						} else {
+//							this.suggestion = "衬衣";
+//						}
+//					}
+//				}
+			})
+			//监视某个属性
+			app.$watch("tempature", function(value, oldValue) {
+				console.log(oldValue);
+				if(value > 40) {
+					this.suggestion = "短裤，短袖！";
+				} else {
+					this.suggestion = "衬衣";
+				}
+			})
+		</script>
+	</body>
+
+</html>

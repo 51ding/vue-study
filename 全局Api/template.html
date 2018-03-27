@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Template模板</title>
+	</head>
+	<body>
+		<p>还有一种.vue的写法</p>
+		<div id="app">
+			<template id="tem">
+				<h2>哒哒哒</h2>
+			</template>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script type="x-template" id="tem2">
+			<h2>javascript标签模板</h2>
+		</script>
+		<script>
+			var app=new Vue({
+				el:"#app",
+				template:"#tem2"
+			})
+		</script>
+	</body>
+</html>

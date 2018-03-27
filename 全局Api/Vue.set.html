@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue.set</title>
+	</head>
+	<body>
+		<h3>在Vue构造器外部操作构造器内部内部的数据</h3>
+		<h3>什么是外部数据，就是不在Vue构造器里里的data处声明，而是在构造器外部声明，然后在data处引用就可以了。外部数据的加入让程序更加灵活，我们可以在外部获取任何想要的数据形式，然后让data引用。</h3>
+		<div id="app">
+			<label for="">{{}}</label>
+			<button onclick="click1()">Click Me</button>
+			<ul>
+				<li v-for="item in list">{{item}}</li>
+			</ul>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script>
+			
+			var courtCount={
+				count:1
+			}
+			var list=["c++","c#","jacvascript"];
+			
+			
+			var app=new Vue({
+				el:"#app",
+				data:{list:list}
+			})
+			
+			
+			function click1(){
+				console.log("x");
+				//改变外部值得三种方法
+				//1.
+				//app.count++;
+				//2.
+				//courtCount.count++;
+				//3.Vue.set
+				//Vue.set(courtCount,"count",5);
+				
+				//监测数组变化,使用这种方法无法修改,是由于javascript限制
+				//app.list[1]="nodejs";
+				//使用Vue.set
+				Vue.set(list,1,"Nodejs");
+			}
+		</script>
+	</body>
+</html>

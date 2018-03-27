@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Vue.extend Vue扩展 </title>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script>
+			var txt=Vue.extend({
+				template:"<p>{{a}}   {{b}}   {{c}}</p>",
+				data:function(){
+					return {
+						a:"ZHANGSAN",
+						b:12,
+						c:"三年二班"
+					}
+				}
+			})
+			
+			//可以挂在到某个元素上(选择器)，也可以指定一个字符串，作为标签使用
+			new txt().$mount("#app");
+			
+		</script>
+	</body>
+</html>

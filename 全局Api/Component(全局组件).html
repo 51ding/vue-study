@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Component组件</title>
+	</head>
+	<body>
+		<p>其实组件就是制作自定义的标签，这些标签在HTML中是没有的</p>
+		<div id="app">
+			<houhanbin></houhanbin>
+			<houhanbin></houhanbin>
+			<houhanbin></houhanbin>
+		</div>
+		<div id="app2">
+			<houhanbin></houhanbin>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script>
+			//全局组件
+			Vue.component("houhanbin",{
+				template:"<h2>houhanbin</h2>"
+			})
+			
+			var app=new Vue({
+				el:"#app"
+			})
+			
+			var app2=new Vue({
+				el:"#app2"
+			})
+		</script>
+	</body>
+</html>

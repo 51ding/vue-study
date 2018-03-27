@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Component父子组件</title>
+	</head>
+	<body>
+		<div id="app">
+			
+			<grid v-bind:list="list"></grid>
+			<div>
+				<myInput></myInput>
+			</div>
+			
+			<test></test>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script>
+			
+			var myInput={
+				template:'<input type="text" />'
+			};
+			
+			var grid={
+				template:"<table><tr v-for='item in list'><td>{{item}}</td><td><myInput></myInput></td><tr></table>",
+				props:["list"],
+				components:{myInput:myInput}
+			}
+			
+			var app=new Vue({
+				el:"#app",
+				data:{
+					list:['姓名','学号','班级']
+				},	
+				components:{
+					grid:grid, 
+					myInput:myInput,
+					test:{
+						template:"<h2>1111</h2>"
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

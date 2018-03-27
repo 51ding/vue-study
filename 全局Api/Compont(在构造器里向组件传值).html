@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p>使用v-bind:</p>
+		<div id="app">
+			<houhanbin :count="count"></houhanbin>
+			<houhanbin v-bind:count="count"></houhanbin>
+			<button @click="add">Click Me</button>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script>
+			var app=new Vue({
+				el:"#app",
+				data:{
+					count:1
+				},
+				methods:{
+					add:function(){
+						this.count++;	
+					}
+				},
+				components:{
+					houhanbin:{
+						template:"<label>{{count}}</label><button>Click Me</button>",
+						props:["count"]
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

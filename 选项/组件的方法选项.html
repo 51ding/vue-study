@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<p>使用修饰器来调用构造器中的methods中的方法</p>
+		<div id="app">
+			<btn name="添加" @click.native="add"></btn>
+			<button onclick="app.add()">不好的写法</button>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script>
+			var app = new Vue({
+				el: "#app",
+				components: {
+					btn: {
+						template: "<button>{{name}}</button>",
+						props: ["name"]
+					}
+				},
+				data: {
+					number:1
+				},
+				methods: {
+					add: function() {
+						this.number++;
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

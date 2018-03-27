@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Component局部作用域</title>
+	</head>
+	<body>
+		<div id="app">
+			<houhanbin></houhanbin>
+			<dingyan></dingyan>
+		</div>
+		<div id="app2">
+			
+			<dingyan></dingyan>
+		</div>
+		<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+		<script>
+			var app=new Vue({
+				el:"#app",
+				components:{
+					houhanbin:{
+						template:"<h2>houhanbin</h2>"
+					},
+					dingyan:{
+						template:"<h2>dingyan</h2>"
+					}
+				}
+			})
+			
+			var app=new Vue({
+				el:"#app2",
+				components:{
+					dingyan:{
+						template:"<h2>Hello </h2>"
+					}
+				}
+			})
+			
+		</script>
+	</body>
+</html>
